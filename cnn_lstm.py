@@ -24,7 +24,7 @@ class CNNLSTM:
         model.add(Conv2D(self.nb_filter, (self.kernel_size, self.kernel_size), input_shape=self.input_shape, activation='relu'))
         model.add(MaxPool2D(pool_size=(2, 2)))
         model.add(Dropout(0.2))
-        model.add(Flatten())
+        model.add(LSTM(64, return_sequences=False))
         model.add(Dense(128, activation='relu'))
         model.add(Dense(self.output_dim, activation='softmax'))
         print('Compile model...')
