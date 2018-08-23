@@ -1,13 +1,13 @@
 # Limit Order Book(L2) Prediction
 
-Trys to predict price jumps(*) from features derived from l2 order book information.  
-(*) price jumps : current bid price > previous bid price (within short period of time)
+*) Trys to predict price jumps from features derived from l2 order book information.   
+*) price jumps : current bid price > previous bid price (within short period of time) 
 
-![orderbook](https://github.com/miroblog/upbit_api_collection/blob/master/png/ohlc.png)
+![orderbook](https://github.com/miroblog/limit_orderbook_prediction/blob/master/l2_orderbook.png)
 
 order book information contains ask, bid prices and corresponding quantities at each level.
 
-![features](https://github.com/miroblog/upbit_api_collection/blob/master/png/ohlc.png)  
+![features](https://github.com/miroblog/limit_orderbook_prediction/blob/master/features.png)  
 
 Applies custom weights to overcome inbalance between classes.
 
@@ -48,9 +48,9 @@ common library such as BeautifulSoup, selenium, pyperclip
 ```python
 pip install -r requirements.txt
 ```
-### Impements RNN / Conv2D
-
-![convolutional](https://github.com/miroblog/upbit_api_collection/blob/master/png/ohlc.png)
+### Impements LSTM / Conv2DLSTM 
+![lstm](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+![convolutional](https://github.com/miroblog/limit_orderbook_prediction/blob/master/convolutional.png)
 
 ## Authors
 
