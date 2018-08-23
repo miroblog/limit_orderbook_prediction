@@ -1,8 +1,8 @@
 # Limit Order Book(L2) Prediction
 
-[JuypterNotebook-Rnn](https://github.com/miroblog/limit_orderbook_prediction/blob/master/nn_example.ipynb)
- Trys to predict price jumps from features derived from L2 order book information.    
+This repo trys to predict price jumps from features derived from L2 order book information.    
 Order book information contains ask, bid prices and corresponding quantities at each level.
+Example [JuypterNotebook-Rnn](https://github.com/miroblog/limit_orderbook_prediction/blob/master/nn_example.ipynb)
   
 "./data" contains sample data from upbit, tick-tick information of L2 orderbook (KRW-ADA)
 
@@ -51,7 +51,7 @@ pip install -r requirements.txt
 
 ## Authors
 
-* **Lee Hankyol** - *Initial work* - [Upbit_API_COLLECTION](https://github.com/miroblog/limit_orderbook_prediction)
+* **Lee Hankyol** - *Initial work* - [L2-Prediction](https://github.com/miroblog/limit_orderbook_prediction)
 
 ## License
 
