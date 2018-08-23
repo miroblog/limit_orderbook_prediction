@@ -37,7 +37,6 @@ print("TRAIN WITH CROSS-VALIDATION")
 nn.run_with_cross_validation(data, n_cross_validation)
 
 ```
-![orderbook](https://github.com/miroblog/limit_orderbook_prediction/blob/master/l2_orderbook.png)
 
 ### Prerequisites
 
