@@ -1,36 +1,43 @@
-# Upbit API Collections
+# Limit Order Book(L2) Prediction
 
-Automates upbit exchange platform using selenium webdriver  
-The code was written before the official rest-api for upbit exchange was released.  
-The official API is released 2018. 06 https://docs.upbit.com/blog/  
+Trys to predict price jumps(*) from features derived from l2 order book information.  
+(*) price jumps : current bid price > previous bid price (within short period of time)
 
-It is for educational purposes only. This code may come in handy where official rest-api is not available.  
+![orderbook](https://github.com/miroblog/upbit_api_collection/blob/master/png/ohlc.png)
+
+order book information contains ask, bid prices and corresponding quantities at each level.
+
+![features](https://github.com/miroblog/upbit_api_collection/blob/master/png/ohlc.png)  
+
+Applies custom weights to overcome inbalance between classes.
+
+![JuypterNotebook-Rnn](https://github.com/miroblog/limit_orderbook_prediction/blob/master/nn_example.ipynb)
 
 
 ## Getting Started
 
 ```python
+from nn import NeuralNetwork
+from rnn import RNN
 
-# upbit uses kakao id/pwd for login
-kakao_id_secret = "ur_kakao_id"
-kakao_pwd_secret = "ur_pass_wd"
+timestep = 50
+n_cross_validation = 3
+# for order book info only
+data = data_prep.get_test_data(timestep, predict_step=5, filename="upbit_l2_orderbook_ADA")
 
-trader = upbitTrader()
-trader.set_up_trade("BTC")
+# input_shape <- (timestep, n_features)
+# output_shape <- n_classes
+nn = NeuralNetwork(RNN(input_shape=data.x.shape[1:], output_dim=data.y.shape[1]), class_weight={0: 1., 1: 1., 2: 1.})
 
-# scrapes limit order book information directly from the web
-ask_prices, bid_prices, ask_quantities, bid_quantities = trader.collector()
+print("TRAIN")
+nn.train(data)
 
-# buy 50% at the best bid price
-print(bid_prices[0])
-trader.put_buy_order(bid_prices[0], "HALF")
+print("TEST")
+nn.test(data)
 
-# sell all the coin at best ask price
-print(bid_prices[0])
-trader.put_sell_order(ask_prices[0], "ALL")
+print("TRAIN WITH CROSS-VALIDATION")
+nn.run_with_cross_validation(data, n_cross_validation)
 
-# cancel all order
-trader.cancel_all_order()
 ```
 
 
@@ -41,12 +48,13 @@ common library such as BeautifulSoup, selenium, pyperclip
 ```python
 pip install -r requirements.txt
 ```
+### Impements RNN / Conv2D
 
-![candle](https://github.com/miroblog/upbit_api_collection/blob/master/png/ohlc.png)
+![convolutional](https://github.com/miroblog/upbit_api_collection/blob/master/png/ohlc.png)
 
 ## Authors
 
-* **Lee Hankyol** - *Initial work* - [Upbit_API_COLLECTION](https://github.com/miroblog/upbit_api_collection)
+* **Lee Hankyol** - *Initial work* - [Upbit_API_COLLECTION](https://github.com/miroblog/limit_orderbook_prediction)
 
 ## License
 
