@@ -46,7 +46,7 @@ common library such as BeautifulSoup, selenium, pyperclip
 pip install -r requirements.txt
 ```
 ### Impements LSTM / Conv2DLSTM 
-![lstm](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+![lstm](https://github.com/miroblog/limit_orderbook_prediction/blob/master/lstm.jpg)
 ![convolutional](https://github.com/miroblog/limit_orderbook_prediction/blob/master/convolutional.png)
 
 ## Authors
