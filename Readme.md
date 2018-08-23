@@ -3,16 +3,15 @@
 *) Trys to predict price jumps from features derived from l2 order book information.   
 *) price jumps : current bid price > previous bid price (within short period of time) 
 
-![orderbook](https://github.com/miroblog/limit_orderbook_prediction/blob/master/l2_orderbook.png)
-
 order book information contains ask, bid prices and corresponding quantities at each level.
 
 ![features](https://github.com/miroblog/limit_orderbook_prediction/blob/master/features.png)  
 
 Applies custom weights to overcome inbalance between classes.
 
-![JuypterNotebook-Rnn](https://github.com/miroblog/limit_orderbook_prediction/blob/master/nn_example.ipynb)
+[JuypterNotebook-Rnn](https://github.com/miroblog/limit_orderbook_prediction/blob/master/nn_example.ipynb)
 
+![orderbook](https://github.com/miroblog/limit_orderbook_prediction/blob/master/l2_orderbook.png)
 
 ## Getting Started
 
