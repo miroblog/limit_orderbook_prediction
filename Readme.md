@@ -1,8 +1,8 @@
 # Limit Order Book(L2) Prediction
 
 ### This repo trys to predict price jumps from features derived from L2 order book information.    
-### Order book information contains ask, bid prices and corresponding quantities at each level.  
-### Note! price jumps : current bid price > previous bid price (within short period of time) 
+Order book information contains ask, bid prices and corresponding quantities at each level.  
+Note! price jumps : current bid price > previous bid price (within short period of time) 
 
 1. Example [JuypterNotebook-Rnn](https://github.com/miroblog/limit_orderbook_prediction/blob/master/nn_example.ipynb)  
 2. "./data" contains sample data from upbit, tick-tick information of L2 orderbook (KRW-ADA)  
