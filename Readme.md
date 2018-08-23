@@ -12,8 +12,6 @@ features are from https://github.com/dzitkowskik/StockPredictionRNN/blob/master/
 
 ![features](https://github.com/miroblog/limit_orderbook_prediction/blob/master/features.png)  
 
-![orderbook](https://github.com/miroblog/limit_orderbook_prediction/blob/master/l2_orderbook.png)
-
 ## Getting Started
 
 ```python
@@ -39,7 +37,7 @@ print("TRAIN WITH CROSS-VALIDATION")
 nn.run_with_cross_validation(data, n_cross_validation)
 
 ```
-
+![orderbook](https://github.com/miroblog/limit_orderbook_prediction/blob/master/l2_orderbook.png)
 
 ### Prerequisites
 
