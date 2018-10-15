@@ -84,8 +84,8 @@ def main():
     print("TEST")
     nn.test(data)
 
-    print("TRAIN WITH CROSS-VALIDATION")
-    nn.run_with_cross_validation(data, n_cross_validation)
+    # print("TRAIN WITH CROSS-VALIDATION")
+    # nn.run_with_cross_validation(data, n_cross_validation)
 
 if __name__ == '__main__':
     main()

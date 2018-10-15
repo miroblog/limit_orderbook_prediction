@@ -1,6 +1,3 @@
-from keras.utils import np_utils
-from sklearn import cross_validation
-from data_prep import Data
 import numpy as np
 from keras.callbacks import ModelCheckpoint
 from sklearn.metrics import confusion_matrix
@@ -22,6 +19,7 @@ class NeuralNetwork:
         filepath = "./model/improvement-{epoch:02d}-{val_loss_class_accuracy:.2f}.hdf5"
         checkpoint = ModelCheckpoint(filepath, monitor='val_loss_class_accuracy', verbose=1, save_best_only=True, mode='max')
         callbacks_list = [checkpoint]
+        print("before fit")
         self.model.fit(data.x,
                        data.y,
                        epochs=self.nb_epoch,
@@ -58,31 +56,31 @@ class NeuralNetwork:
 
         return error
 
-    def run_with_cross_validation(self, data, cross_num):
-        return self.__run_with_cross_validation(data.x, data.y, cross_num)
-
-    def __run_with_cross_validation(self, x, y, cross_num):
-        # N - number of observations
-        N = len(x)
-        train_errors = np.zeros(cross_num)
-        test_errors = np.zeros(cross_num)
-        cv = cross_validation.KFold(N, cross_num, shuffle=True)
-
-        i = 0
-        for train_index, test_index in cv:
-            x_train = x[train_index, :]
-            y_train = y[train_index, :]
-            x_test = x[test_index, :]
-            y_test = y[test_index, :]
-
-            train_data = Data(x_train, y_train)
-            test_data = Data(x_test, y_test)
-
-            train_errors[i] = self.train(train_data)
-            test_errors[i] = self.test(test_data)
-            i += 1
-
-        return train_errors, test_errors
+    # def run_with_cross_validation(self, data, cross_num):
+    #     return self.__run_with_cross_validation(data.x, data.y, cross_num)
+    #
+    # def __run_with_cross_validation(self, x, y, cross_num):
+    #     # N - number of observations
+    #     N = len(x)
+    #     train_errors = np.zeros(cross_num)
+    #     test_errors = np.zeros(cross_num)
+    #     cv = cross_validation.KFold(N, cross_num, shuffle=True)
+    #
+    #     i = 0
+    #     for train_index, test_index in cv:
+    #         x_train = x[train_index, :]
+    #         y_train = y[train_index, :]
+    #         x_test = x[test_index, :]
+    #         y_test = y[test_index, :]
+    #
+    #         train_data = Data(x_train, y_train)
+    #         test_data = Data(x_test, y_test)
+    #
+    #         train_errors[i] = self.train(train_data)
+    #         test_errors[i] = self.test(test_data)
+    #         i += 1
+    #
+    #     return train_errors, test_errors
 
     def __change_input_dim(self, input_dim):
         self.nn.change_input_dim(input_dim)
