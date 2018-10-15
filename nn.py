@@ -16,8 +16,8 @@ class NeuralNetwork:
 
     def train(self, data):
         print("Train...")
-        filepath = "./model/improvement-{epoch:02d}-{val_loss_class_accuracy:.2f}.hdf5"
-        checkpoint = ModelCheckpoint(filepath, monitor='val_loss_class_accuracy', verbose=1, save_best_only=True, mode='max')
+        filepath = "./model/improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
+        checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
         callbacks_list = [checkpoint]
         print("before fit")
         self.model.fit(data.x,
