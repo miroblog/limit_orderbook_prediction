@@ -4,7 +4,7 @@
 Order book information contains ask, bid prices and corresponding quantities at each level.  
 Note! price jumps : current bid price > previous bid price (within short period of time) 
 
-![orderbook_info](https://github.com/miroblog/limit_orderbook_prediction/blob/master/image/orderbook.png)  
+![orderbook_info](https://github.com/miroblog/limit_orderbook_prediction/blob/master/image/l2_orderbook.png)  
 
 1. Example [JuypterNotebook-Rnn](https://github.com/miroblog/limit_orderbook_prediction/blob/master/nn_example.ipynb)  
 2. "./data" contains sample data from upbit, tick-tick information of L2 orderbook (KRW-ADA)  
@@ -46,8 +46,8 @@ keras, tensorflow, sklearn, nuumpy, pandas ...
 pip install -r requirements.txt
 ```
 ### Impements LSTM / Conv2DLSTM 
-[LSTM]https://github.com/miroblog/limit_orderbook_prediction/blob/master/rnn.py
-[CNN-LSTM] https://github.com/miroblog/limit_orderbook_prediction/blob/master/cnn_lstm.py
+[LSTM]https://github.com/miroblog/limit_orderbook_prediction/blob/master/rnn.py  
+[CNN-LSTM] https://github.com/miroblog/limit_orderbook_prediction/blob/master/cnn_lstm.py  
 ![lstm](https://github.com/miroblog/limit_orderbook_prediction/blob/master/image/lstm.jpg)
 ![convolutional](https://github.com/miroblog/limit_orderbook_prediction/blob/master/image/convolutional.png)
 
