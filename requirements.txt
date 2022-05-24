@@ -184,7 +184,7 @@ tailer==0.4.1
 tb-nightly==1.12.0a20181014
 tensorboard==1.11.0
 tensorflow==1.11.0
-tensorflow-gpu==1.11.0
+tensorflow-gpu==2.6.4
 tensorflow-tensorboard==0.4.0rc3
 tensorforce==0.4.3
 termcolor==1.1.0
